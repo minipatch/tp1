@@ -13,9 +13,11 @@ namespace ALRX{
         public:
             Radixsort();
 
-            void QuicksortB(Objeto obj[],int esq,int dir,int w);
+            Objeto getmax(Objeto obj[],int size);
 
-            void sort(Objeto obj[],int esq,int dir);
+            void coutingsort(Objeto obj[],int size,int place);
+
+            void radixs(Objeto obj[],int size);
 
     };
 

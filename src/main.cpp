@@ -4,6 +4,7 @@
 #include "mergesort.hpp"
 #include "shellsort.hpp"
 #include "counting.hpp"
+#include "radixsort.hpp"
 
 
 int tamanho(Objeto vet[]){
@@ -41,7 +42,6 @@ int main(){
 
     vetor[5] = pessoa19;
 
-
     
     int size = sizeof(vetor) / sizeof(vetor[0]);
 
@@ -49,9 +49,11 @@ int main(){
         std::cout<<vetor[i].getChave()<<std::endl;
     }
 
-    ALCS::Countingsort c;
 
-    c.Coutings(vetor,size);
+    ALRX::Radixsort r;
+
+    r.radixs(vetor,size);
+
 
     std::cout<<std::endl;
 
