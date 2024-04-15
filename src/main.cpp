@@ -5,7 +5,7 @@
 #include "shellsort.hpp"
 #include "counting.hpp"
 #include "radixsort.hpp"
-
+#include "bucket.hpp"
 
 int tamanho(Objeto vet[]){
     int tam = sizeof(vet) / sizeof(vet[0]);
@@ -49,10 +49,16 @@ int main(){
         std::cout<<vetor[i].getChave()<<std::endl;
     }
 
+    ALBS::Bucketsort b;
 
-    ALRX::Radixsort r;
 
-    r.radixs(vetor,size);
+    b.Buckets(vetor,size);
+
+    // ALRX::Radixsort r;
+
+    // r.radixs(vetor,size);
+
+
 
 
     std::cout<<std::endl;
