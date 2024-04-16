@@ -1,19 +1,14 @@
 #include "algorithSimple.hpp"
 
 //construtor do algoritmo
-ALS::AlgoritmSimple::AlgoritmSimple(){}
+ALS::AlgoritmSimple::AlgoritmSimple(){
+    
+}
 
-
-// algoritmo para realizar algumas trocas 
-// void ALS::AlgoritmSimple::Trade(Objeto obj1,Objeto obj2){
-//     int aux = obj1.getChave();
-//     obj1.SetObjeto(obj2.getChave());
-//     obj2.SetObjeto(aux);
-
-// }
 
 //algoritmo bolhad
-void ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
+int ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
+   int count =0;
     for(int i = size-1;i>0;i--){
 
         for(int j=0;j<i;j++){
@@ -24,15 +19,16 @@ void ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
 
                 obj[j].SetObjeto(obj[j+1].getChave());
 
-                obj[j+1].SetObjeto(aux);                
-                // ALS::AlgoritmSimple::Trade(obj[j].getChave(),obj[j+1].getChave());
+                obj[j+1].SetObjeto(aux);    
+                count++;
             }
 
         }
 
     }   
-
+    return count;
 }
+
 
 //algoritmo de inserção
 void ALS::AlgoritmSimple::Insertsort(Objeto obj[],int size){

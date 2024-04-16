@@ -9,16 +9,18 @@ namespace ALS{
     class AlgoritmSimple{
         private:
 
+
         public:
             AlgoritmSimple();
 
-            void Bubblesort(Objeto obj[],int size);
+            int Bubblesort(Objeto obj[],int size);
 
             void Insertsort(Objeto obj[],int size);        
 
             void Selectionsort(Objeto obj[],int size);
 
-            void Trade(Objeto obj1,Objeto obj2);
+
+            int getcount();
     };
     
 }
