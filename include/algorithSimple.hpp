@@ -13,7 +13,7 @@ namespace ALS{
         public:
             AlgoritmSimple();
 
-            int Bubblesort(Objeto obj[],int size);
+            void Bubblesort(Objeto obj[],int size);
 
             void Insertsort(Objeto obj[],int size);        
 

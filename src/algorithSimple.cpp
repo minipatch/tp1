@@ -7,8 +7,7 @@ ALS::AlgoritmSimple::AlgoritmSimple(){
 
 
 //algoritmo bolhad
-int ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
-   int count =0;
+void ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
     for(int i = size-1;i>0;i--){
 
         for(int j=0;j<i;j++){
@@ -20,13 +19,11 @@ int ALS::AlgoritmSimple::Bubblesort(Objeto obj[],int size){
                 obj[j].SetObjeto(obj[j+1].getChave());
 
                 obj[j+1].SetObjeto(aux);    
-                count++;
             }
 
         }
 
     }   
-    return count;
 }
 
 

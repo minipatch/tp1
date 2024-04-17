@@ -8,54 +8,48 @@ Cargadetrabalho::Cargadetrabalho(int tam){
 }
 
 
-//não esta me dando as movimentações certas 
-void Cargadetrabalho::Movimentacoes(Objeto obj[]){
-    //como vou medir tenho que medir a quantidade de movimentação que há em cada algoritmo? ou so falar quantos itens tem que ser movimentos?
-    int count = 0;
+//quantos itens a ordernar esta certo
+int Cargadetrabalho::qtsiordenar(Objeto obj[]){
+    int count=0;    
+
+    Objeto aux[_tam];
+
+    for(int i=0;i<_tam;i++){
+        aux[i] = obj[i];
+    }   
+
+    ALS::AlgoritmSimple buuble;    
 
 
-    //acho que essa medida não esta certo
-    for(int i=1;i<_tam;i++){
-        //quantas movimentações eu faço comparando se o valor anterior é maior do que o valor atual
-        if(obj[i].getChave()<obj[i-1].getChave()){
-            count++;
+    buuble.Bubblesort(aux,_tam);
+
+    for(int i=0;i<_tam;i++){
+        if(aux[i].getChave() != obj[i].getChave()){
+            count += 1;
         }
-        //sem movientações 
-        if(obj[i].getChave()>=obj[i-1].getChave()){
-            count+=0;
-        }
     }
 
-
-    
-    // comentario de quantas movimentações
-    if(count == 0){
-        std::cout<<count<<std::endl;
-    }
-    else{
-        std::cout<<count<<std::endl;
-    }
-
+    return count;
 }
 
-//tem que verificar se ta esta certo
-void Cargadetrabalho::Tamanhoembytes(Objeto obj[],int i){
-    int pos = i;
 
+//tamanho em bytes esta certo
+size_t Cargadetrabalho::Tamanhoembytes(Objeto obj[],int i){
+    
+    size_t bytes;
+    
     if(i>0){
-        pos = pos - 1;
-        size_t bytes = sizeof(obj[pos]);
-        std::cout<<"tamanho do vetor na posicao "<<pos+1<<" em bytes e: "<<bytes<<std::endl;
+    
+        bytes = sizeof(obj[i-1]);
     }
    
     else if(i == 0){
-        size_t bytes = sizeof(obj[pos]);
-        std::cout<<"tamanho do vetor em bytes e: "<<bytes<<std::endl;
-    } 
     
+        bytes = sizeof(obj[i]);
+    } 
+
+    return bytes;
 }
-
-
 
 
 void Cargadetrabalho::OlharTamnhodovetor(Objeto obj[]){

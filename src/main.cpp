@@ -7,11 +7,11 @@ int main(){
 
     Objeto vetor[3];
 
-    Objeto pessoa(3);
+    Objeto pessoa(1);
 
-    Objeto pessoa1(2);
+    Objeto pessoa1(3);
 
-    Objeto pessoa2(1); 
+    Objeto pessoa2(3); 
     
 
     vetor[0] = pessoa;
@@ -40,8 +40,5 @@ int main(){
     //     std::cout<<vetor[i].getChave()<<std::endl;
     // }
 
-    tb.Movimentacoes(vetor);
-
-
-    
+    std::cout<<tb.qtsiordenar(vetor)<<std::endl;    
 }

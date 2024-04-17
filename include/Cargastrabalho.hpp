@@ -24,9 +24,9 @@ class Cargadetrabalho{
     public:
         Cargadetrabalho(int tam);
 
-        void Movimentacoes(Objeto obj[]);      
+        int qtsiordenar(Objeto obj[]);      
 
-        void Tamanhoembytes(Objeto obj[],int i);  
+        size_t Tamanhoembytes(Objeto obj[],int i);  
 
         void OlharTamnhodovetor(Objeto obj[]);
 };
