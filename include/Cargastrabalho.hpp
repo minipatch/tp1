@@ -18,9 +18,11 @@ class Cargadetrabalho{
         // Objeto _obj[];
     
 
-        bool Isordenado = false;
+        bool _Isordenado = false;
 
-        bool  IsinverOrde = false;
+        bool _InversamenteO = false;
+
+        bool _baguncado = false;
     public:
         Cargadetrabalho(int tam);
 
@@ -29,6 +31,12 @@ class Cargadetrabalho{
         size_t Tamanhoembytes(Objeto obj[],int i);  
 
         void OlharTamnhodovetor(Objeto obj[]);
+
+        bool getIsordenado();
+
+        bool getBaguncado();
+
+        bool getInversa();
 };
 
 

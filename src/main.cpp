@@ -7,11 +7,11 @@ int main(){
 
     Objeto vetor[3];
 
-    Objeto pessoa(1);
+    Objeto pessoa(3);
 
     Objeto pessoa1(3);
 
-    Objeto pessoa2(3); 
+    Objeto pessoa2(1); 
     
 
     vetor[0] = pessoa;
@@ -40,5 +40,13 @@ int main(){
     //     std::cout<<vetor[i].getChave()<<std::endl;
     // }
 
-    std::cout<<tb.qtsiordenar(vetor)<<std::endl;    
+    tb.OlharTamnhodovetor(vetor);
+
+    // std::cout<<tb.getBaguncado()<<std::endl;
+
+    std::cout<<tb.getIsordenado()<<std::endl;
+
+    std::cout<<tb.getInversa()<<std::endl;    
+    
+    std::cout<<tb.getBaguncado()<<std::endl;
 }

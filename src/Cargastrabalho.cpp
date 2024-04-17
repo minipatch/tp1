@@ -51,47 +51,47 @@ size_t Cargadetrabalho::Tamanhoembytes(Objeto obj[],int i){
     return bytes;
 }
 
-
+//função verifica se o vetor esta organizado de forma crescente ou decrecente ou bagunçado
 void Cargadetrabalho::OlharTamnhodovetor(Objeto obj[]){
-    int count = 1;
-    
-    for(int i=1;i<_tam;i++){
-        if(obj[i].getChave()<obj[i-1].getChave()){
-            count+=0;
+    int count1 = 1;
+    int count2 = 1;
+
+    for(int i=0;i<_tam-1;i++){
+        
+        if(obj[i].getChave()>=obj[i+1].getChave()){
+            count1 += 1;
         }
-        
-        else if(obj[i].getChave()>=obj[i-1].getChave()){
-        
-            count++;
+
+        if(obj[i+1].getChave()>=obj[i].getChave()){
+            count2 += 1;
         }
     }
-    
-    if(count == _tam){
-        
-        std::cout<<"o vetor é proporcional"<<std::endl;
-        
-        Isordenado = true;
+
+    if(count1 == _tam){
+        _InversamenteO = true;
     }
 
-    if(count == 1){
-        
-        std::cout<<"o vetor é inversamente proporcional"<<std::endl;
-        
-        IsinverOrde = true;
+    if(count2 == _tam){
+        _Isordenado = true;
     }
 
-
-    if(count > 1 && count <_tam){
-        std::cout<<"vetor esta totalmente bagunçado"<<std::endl;
-
-        Isordenado = false;
-        IsinverOrde = false;
-
+    else if(count1 != _tam && count2 != _tam){
+        _baguncado = true;
     }
-    std::cout<<count<<std::endl;
+
 }
 
 
+bool Cargadetrabalho::getIsordenado(){
+    return _Isordenado;
+}
 
 
+bool Cargadetrabalho::getInversa(){
+    return _InversamenteO;
+}
+
+bool Cargadetrabalho::getBaguncado(){
+    return _baguncado;
+}
 
