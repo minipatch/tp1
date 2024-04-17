@@ -17,13 +17,18 @@ class Cargadetrabalho{
         int _tam;
         // Objeto _obj[];
     
+
+        bool Isordenado = false;
+
+        bool  IsinverOrde = false;
     public:
         Cargadetrabalho(int tam);
 
-        int TamanhodeItens(Objeto obj[]);        
+        void Movimentacoes(Objeto obj[]);      
 
+        void Tamanhoembytes(Objeto obj[],int i);  
 
-
+        void OlharTamnhodovetor(Objeto obj[]);
 };
 
 

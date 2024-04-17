@@ -7,9 +7,9 @@ int main(){
 
     Objeto vetor[3];
 
-    Objeto pessoa(5);
+    Objeto pessoa(3);
 
-    Objeto pessoa1(3);
+    Objeto pessoa1(2);
 
     Objeto pessoa2(1); 
     
@@ -28,18 +28,20 @@ int main(){
         std::cout<<vetor[i].getChave()<<std::endl;
     }
 
-    Cargadetrabalho tb(size);
+    Cargadetrabalho tb(size);    
 
-    std::cout<<tb.TamanhodeItens(vetor)<<std::endl;
-    
+
 
     std::cout<<std::endl;
 
     // std::cout<<numorderna<<std::endl;
 
-    for(int i=0;i<size;i++){
-        std::cout<<vetor[i].getChave()<<std::endl;
-    }
+    // for(int i=0;i<size;i++){
+    //     std::cout<<vetor[i].getChave()<<std::endl;
+    // }
+
+    tb.Movimentacoes(vetor);
+
 
     
 }

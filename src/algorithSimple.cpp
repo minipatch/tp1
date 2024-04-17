@@ -66,3 +66,5 @@ void ALS::AlgoritmSimple::Selectionsort(Objeto obj[],int size){
     }
 }
 
+
+

@@ -19,8 +19,6 @@ namespace ALS{
 
             void Selectionsort(Objeto obj[],int size);
 
-
-            int getcount();
     };
     
 }
