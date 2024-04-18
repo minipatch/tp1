@@ -1,6 +1,7 @@
 #ifndef OBJETO_HPP
 #define OBJETO_HPP
 
+#include <cstdlib>
 #include <iostream>
 
 class Objeto{

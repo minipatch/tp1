@@ -1,28 +1,29 @@
 #include "Cargastrabalho.hpp"
 #include <chrono>
+#include <thread>
+
+void ObterObjeto(Objeto vet[],int size){
+    for(int i=0;i<size;i++){
+        Objeto obj;
+        vet[i] = obj;
+    }
+}
+
+
+
 
 int main(){
-    
 
-    Objeto vetor[3];
-
-    Objeto pessoa(2);
-
-    Objeto pessoa1(3);
-
-    Objeto pessoa2(1); 
-    
-
-    vetor[0] = pessoa;
-
-    vetor[1] = pessoa1;
-
-    vetor[2] = pessoa2;
+    Objeto vetor[9999];
 
 
-    
+
+
+
     int size = sizeof(vetor) / sizeof(vetor[0]);
     
+    ObterObjeto(vetor,size);
+
     for(int i=0;i<size;i++){
         std::cout<<vetor[i].getChave()<<std::endl;
     }
@@ -69,7 +70,8 @@ int main(){
 
 
     //ordena o vetor com buuble
-    if(algoritmo == "ALB"){
+    if(algoritmo == "ALB")
+    {
         ALB::Bubblesort a;   
         auto inicio = std::chrono::steady_clock::now();
     
@@ -82,41 +84,115 @@ int main(){
         std::cout<<duration<<std::endl<<std::endl;
     }
 
-    else if(algoritmo == "ALBS"){
+    else if(algoritmo == "ALBS")
+    {
         ALBS::Bucketsort b;
 
         auto inicio = std::chrono::steady_clock::now();
         b.Buckets(vetor,size);
         auto fin = std::chrono::steady_clock::now();
 
-        auto duration = std::chrono::duration_cast<std::chrono::seconds>(fin - inicio).count();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+
     }
 
-    else if(algoritmo == "ALCS"){
+    else if(algoritmo == "ALCS")
+    {
         ALCS::Countingsort c;
 
         auto inicio = std::chrono::steady_clock::now();
         c.Coutings(vetor,size);
         auto fin = std::chrono::steady_clock::now();
 
-        auto duration = std::chrono::duration_cast<std::chrono::seconds>(fin - inicio).count();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+
     }
 
-    else if(algoritmo == "ALI"){
+    else if(algoritmo == "ALI")
+    {
         ALI::Insertsort i;
 
         auto inicio = std::chrono::steady_clock::now();
         i.InsertS(vetor,size);
         auto fin = std::chrono::steady_clock::now();
 
-        auto duration = std::chrono::duration_cast<std::chrono::seconds>(fin - inicio).count(); 
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count(); 
+        std::cout<<duration<<std::endl<<std::endl;
+
+    }
+
+    else if(algoritmo == "ALQ")
+    {
+        ALQ::QuickSort q;
+
+        auto inicio = std::chrono::steady_clock::now();
+        q.QuickS(vetor,size);
+        std::this_thread::sleep_for (std::chrono::seconds(1));
+        auto fin = std::chrono::steady_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+    }
+
+    else if(algoritmo == "ALM")
+    {
+        ALM::Mergesort m;
+
+        auto inicio = std::chrono::steady_clock::now();
+        m.MergeS(vetor,0,size-1);
+        auto fin = std::chrono::steady_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+        
     }
 
 
+    else if(algoritmo == "ALRX")
+    {
+        ALRX::Radixsort r;
+
+        auto inicio = std::chrono::steady_clock::now();
+        r.radixs(vetor,size);
+        auto fin = std::chrono::steady_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+
+    }
+
+    else if(algoritmo == "ALS")
+    {
+        ALS::Selectionsort s;
+
+        auto inicio = std::chrono::steady_clock::now();
+        s.Selections(vetor,size);
+        auto fin = std::chrono::steady_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+
+    }
+
+    else if(algoritmo == "ALSH")
+    {
+        ALSH::Shellsort s;
+
+        auto inicio = std::chrono::steady_clock::now();
+
+        s.Shells(vetor,size);
+        auto fin = std::chrono::steady_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(fin - inicio).count();
+        std::cout<<duration<<std::endl<<std::endl;
+    }
 
 
     for(int i=0;i<size;i++){
         std::cout<<vetor[i].getChave()<<std::endl;
     }
 
+    
 }

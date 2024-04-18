@@ -1,6 +1,8 @@
 #include "objeto.hpp"
 
-Objeto::Objeto(){}
+Objeto::Objeto(){
+    this->_chave = rand() % 100;
+}
 
 Objeto::Objeto(int chave){
     this->_chave = chave;

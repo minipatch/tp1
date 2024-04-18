@@ -4,10 +4,14 @@
 #include <iostream>
 #include "objeto.hpp"
 
+
 namespace ALCS{
+
+
     class Countingsort{
         private:
 
+        const int MAX_TAM = 100000;
         public:
 
             Countingsort();

@@ -1,12 +1,13 @@
 #include "counting.hpp"
 
+
 ALCS::Countingsort::Countingsort(){}
 
 
 
 void ALCS::Countingsort::Coutings(Objeto obj[],int size){
-    Objeto output[10];
-    Objeto count[10];
+    Objeto output[size];
+    Objeto count[size];
     int max = obj[0].getChave();
 
 
