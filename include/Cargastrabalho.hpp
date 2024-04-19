@@ -3,15 +3,7 @@
 
 #include <iostream>
 #include "objeto.hpp"
-#include "quicksort.hpp"
-#include "mergesort.hpp"
-#include "shellsort.hpp"
-#include "counting.hpp"
-#include "radixsort.hpp"
-#include "bucket.hpp"
-#include "bubblesort.hpp"
-#include "selection.hpp"
-#include "insertsort.hpp"
+#include "sort.hpp"
 
 
 

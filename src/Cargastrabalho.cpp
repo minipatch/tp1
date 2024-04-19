@@ -18,10 +18,10 @@ int Cargadetrabalho::qtsiordenar(Objeto obj[]){
         aux[i] = obj[i];
     }   
 
-    ALB::Bubblesort buuble;    
+    Algoritm::Sorts s;    
 
+    s.Bubbblesort(aux,_tam);
 
-    buuble.BubbleS(aux,_tam);
 
     for(int i=0;i<_tam;i++){
         if(aux[i].getChave() != obj[i].getChave()){
