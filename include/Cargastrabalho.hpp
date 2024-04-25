@@ -10,9 +10,7 @@
 class Cargadetrabalho{
     private:
         int _tam;
-        // Objeto _obj[];
     
-
         bool _Isordenado = false;
 
         bool _InversamenteO = false;
