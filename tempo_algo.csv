@@ -9,7 +9,7 @@ x,tarefa,tempo
 10,quicksort,5
 10,mergesort,6
 10,radixsort,6
-10,selectionsort,,3
+10,selectionsort,3
 10,shellsort,2
 20,cargatrabalho1,9
 20,cargadetrabalho2,1
@@ -225,5 +225,5 @@ x,tarefa,tempo
 9999,quicksort,2682
 9999,mergesort,5053
 9999,radixsort,1793
-9999,selectionsort,,516325
+9999,selectionsort,516325
 9999,shellsort,2619

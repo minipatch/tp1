@@ -4,6 +4,12 @@
 #include <thread>
 #include <string>
 #include "sort.hpp"
+#include <sstream>
+#include <limits>
+#include <vector>
+#include <cstring>
+
+
 
 void ObterObjeto(Objeto vet[], int size)
 {
@@ -28,14 +34,56 @@ void printvetor(Objeto vet[],int size){
     }
 }
 
+
+int contarDigitos(const char* str) {
+    int count = 0;
+    while (*str) {
+        if (isdigit(*str)) {
+            count++;
+        }
+        str++;
+    }
+    return count;
+}
+
+// Função para converter uma substring em um número inteiro
+int stringParaInt(const char* str, int length) {
+    int result = 0;
+    for (int i = 0; i < length; ++i) {
+        result = result * 10 + (str[i] - '0');
+    }
+    return result;
+}
+
+
+
 int main()
 {
 
-    Objeto vetor[9999];
 
+    Objeto vetor[10];
     int size = sizeof(vetor) / sizeof(vetor[0]);
-
     ObterObjeto(vetor, size);
+
+    // //vetores auxiliares do experimento
+
+    // Objeto vet[10];
+    // Objeto vet1[20];
+    // Objeto vet2[30];
+    // Objeto vet5[500];
+
+
+    // int size1 = sizeof(vet) / sizeof(vet[0]);
+    // int size2 = sizeof(vet1) / sizeof(vet1[0]);
+    // int size3 = sizeof(vet2) / sizeof(vet2[0]);
+    // int size4 = sizeof(vet5) / sizeof(vet5[0]);
+
+    // ObterObjeto(vet,size1);
+    // ObterObjeto(vet1,size2);
+    // ObterObjeto(vet2,size3);
+    // ObterObjeto(vet5,size4);    
+    
+
 
     std::cout << "vetor de entrada: " << std::endl;
 
@@ -277,15 +325,63 @@ int main()
     arquivo<<size<<",selectionsort,"<<duration8<<std::endl;
     arquivo<<size<<",shellsort,"<<duration9<<std::endl;
 
-    // arquivo<<std::endl;
-    // //salvando os  tempos dos algoritmos em um arquivo 
-    // arquivo<<std::endl;
-
+ 
     arquivo.close();
+        // Nome do arquivo a ser lido
+    const char* nomeArquivo = "tempo_algo.csv";
 
+    // Abrir o arquivo para leitura
+    FILE* arquivo1 = fopen(nomeArquivo, "r");
+    if (arquivo1 == NULL) {
+        std::cerr << "Erro ao abrir o arquivo." << std::endl;
+        return 1;
+    }
 
-    // for(int i=0;i<size;i++){
-        // std::cout<<aux1[i].getChave()<<std::endl;
-    // }
+    char linha[256]; 
+    int menorTempos[MAX_TAM]; 
+    char melhorAlgoritmo[MAX_TAM][256];
 
+    for (int i = 0; i < MAX_TAM; ++i) {
+        menorTempos[i] = 999999;
+        strcpy(melhorAlgoritmo[i], "NONE"); 
+    }
+
+    fgets(linha, sizeof(linha), arquivo1);
+
+    while (fgets(linha, sizeof(linha), arquivo1) != NULL) {
+        char* token = strtok(linha, ",");
+        int tam = atoi(token);
+
+        token = strtok(NULL, ",");
+        char algoritmo[256];
+        strcpy(algoritmo, token);
+
+        if (strcmp(algoritmo, "cargatrabalho1") == 0 ||
+            strcmp(algoritmo, "cargadetrabalho2") == 0 ||
+            strcmp(algoritmo, "cargadetrabalho3") == 0) {
+            continue; 
+        }
+
+        
+        token = strtok(NULL, ",");
+        int tempo = atoi(token);
+
+        
+        if (tempo < menorTempos[tam]) {
+            menorTempos[tam] = tempo;
+            strcpy(melhorAlgoritmo[tam], algoritmo); 
+        }
+    }
+
+    for (int tam = 0; tam < MAX_TAM; ++tam) {
+        if (menorTempos[tam] != 999999) {
+            std::cout << "Para tamanho " << tam << ", o melhor algoritmo foi: " << melhorAlgoritmo[tam] << std::endl;
+        }
+    }
+
+    fclose(arquivo1);
+
+    return 0;
 }
+
+
