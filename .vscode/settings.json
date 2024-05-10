@@ -53,7 +53,8 @@
         "complex": "cpp",
         "map": "cpp",
         "iomanip": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "cstring": "cpp"
     },
     "cmake.sourceDirectory": "/home/augustinho/ed2024/tp1/include/gnuplot-iostream-master"
 }
