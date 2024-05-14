@@ -35,29 +35,7 @@ void printvetor(Objeto vet[],int size){
 }
 
 
-int contarDigitos(const char* str)
-{
-    int count = 0;
-    while (*str) {
-        if (isdigit(*str)) 
-        {
-            count++;
-        }
-        str++;
-    }
-    return count;
-}
-
 // Função para converter uma substring em um número inteiro
-int stringParaInt(const char* str, int length)
-{
-    int result = 0;
-    for (int i = 0; i < length; ++i)
-    {
-        result = result * 10 + (str[i] - '0');
-    }
-    return result;
-}
 
 void obterObjetoOrd(Objeto vet[],int size)
 {
@@ -159,7 +137,15 @@ int main()
     ObterObjetoInv(vetorI,size3);
 
 
-
+    
+    int numero;
+    do{
+        std::cout<<"escolha um valor entre 0 "<<size1-1<<" para saber seu tamanho em bytes"<<std::endl;
+        std::cin>>numero;
+        if(numero<0 || numero >= size1){
+            std::cout<<"entrada invalida"<<std::endl;
+        }
+    }while(numero<0 || numero >= size1);
 
 
 
@@ -218,7 +204,7 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoB = Carga.Tamanhoembytes(vetorB, 1);
+    size_t tamanhoB = Carga.Tamanhoembytes(vetorB, numero);
 
     auto inicioB2 = std::chrono::steady_clock::now();
     Carga.Tamanhoembytes(vetorB, 1);
@@ -287,7 +273,7 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoO = Carga2.Tamanhoembytes(vetorO, 1);
+    size_t tamanhoO = Carga2.Tamanhoembytes(vetorO, numero);
 
     auto inicioO2 = std::chrono::steady_clock::now();
     Carga2.Tamanhoembytes(vetorO, 1);
@@ -351,7 +337,7 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoI = Carga3.Tamanhoembytes(vetorI, 1);
+    size_t tamanhoI = Carga3.Tamanhoembytes(vetorI, numero);
 
     auto inicioI2 = std::chrono::steady_clock::now();
     Carga3.Tamanhoembytes(vetorI, 1);
@@ -808,7 +794,7 @@ int main()
     std::this_thread::sleep_for(std::chrono::seconds(10));
 
 
-    std::ofstream arquivo1("baguncado.csv",std::ofstream::app);
+    std::ofstream arquivo1("extras/baguncado.csv",std::ofstream::app);
 
 
     if(!arquivo1.is_open()){
@@ -838,7 +824,7 @@ int main()
 
     std::cout<<"salvando os dados do vetor ordenado "<<std::endl;
 
-    std::ofstream arquivo2("ordenado.csv",std::ofstream::app);
+    std::ofstream arquivo2("extras/ordenado.csv",std::ofstream::app);
 
     if(!arquivo2.is_open()){
         std::cerr<<"Errro ao abrir ao arquivo! "<<std::endl;
@@ -871,7 +857,7 @@ int main()
     std::cout<<"salvando os dados dos vetores inversamente ordenados"<<std::endl; 
 
 
-    std::ofstream arquivo3("inversamente.csv",std::ofstream::app);
+    std::ofstream arquivo3("extras/inversamente.csv",std::ofstream::app);
 
     if(!arquivo3.is_open()){
         std::cerr<<"Errro ao abrir ao arquivo! "<<std::endl;
@@ -905,17 +891,17 @@ int main()
 
     std::cout<<"caso baguncado: "<<std::endl;
 
-    printsituation("baguncado.csv");
+    printsituation("extras/baguncado.csv");
 
     std::cout<<"caso ordenado: "<<std::endl;
 
 
-    printsituation("ordenado.csv");
+    printsituation("extras/ordenado.csv");
 
 
     std::cout<<"caso inversamente ordenado: "<<std::endl;
 
-    printsituation("inversamente.csv");
+    printsituation("extras/inversamente.csv");
 
 
 
