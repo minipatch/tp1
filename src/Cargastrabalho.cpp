@@ -34,21 +34,12 @@ int Cargadetrabalho::qtsiordenar(Objeto obj[])
 }
 
 // tamanho em bytes esta certo
-size_t Cargadetrabalho::Tamanhoembytes(Objeto obj[], int i)
+size_t* Cargadetrabalho::Tamanhoembytes(Objeto obj[])
 {
 
-    size_t bytes;
-
-    if (i > 0)
-    {
-
-        bytes = sizeof(obj[i - 1]);
-    }
-
-    else if (i == 0)
-    {
-
-        bytes = sizeof(obj[i]);
+    size_t* bytes = new size_t[_tam];
+    for(int i=0;i<_tam;i++){
+        bytes[i] = sizeof(obj[i]);
     }
 
     return bytes;

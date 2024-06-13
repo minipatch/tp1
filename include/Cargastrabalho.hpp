@@ -21,7 +21,7 @@ class Cargadetrabalho{
 
         int qtsiordenar(Objeto obj[]);      
 
-        size_t Tamanhoembytes(Objeto obj[],int i);  
+        size_t* Tamanhoembytes(Objeto obj[]);  
 
         void OlharTamnhodovetor(Objeto obj[]);
 

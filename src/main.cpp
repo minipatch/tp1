@@ -138,14 +138,14 @@ int main()
 
 
     
-    int numero;
-    do{
-        std::cout<<"escolha um valor entre 0 "<<size1-1<<" para saber seu tamanho em bytes"<<std::endl;
-        std::cin>>numero;
-        if(numero<0 || numero >= size1){
-            std::cout<<"entrada invalida"<<std::endl;
-        }
-    }while(numero<0 || numero >= size1);
+    // int numero;
+    // do{
+    //     std::cout<<"escolha um valor entre 0 "<<size1-1<<" para saber seu tamanho em bytes"<<std::endl;
+    //     std::cin>>numero;
+    //     if(numero<0 || numero >= size1){
+    //         std::cout<<"entrada invalida"<<std::endl;
+    //     }
+    // }while(numero<0 || numero >= size1);
 
 
 
@@ -204,14 +204,20 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoB = Carga.Tamanhoembytes(vetorB, numero);
+    size_t* tamanhoB = Carga.Tamanhoembytes(vetorB);
+
 
     auto inicioB2 = std::chrono::steady_clock::now();
-    Carga.Tamanhoembytes(vetorB, 1);
+    Carga.Tamanhoembytes(vetorB);
     auto fimB2 = std::chrono::steady_clock::now();
 
-    std::cout<<"tamanho do vetor em bytes é de "<<tamanhoB<<std::endl;
+    for(int i=0;i<size1;i++)
+    {
+        std::cout<<"tamanho do elemento na posicao" <<i<<" em bytes é de "<<tamanhoB[i]<<std::endl;
+    }
 
+    delete[] tamanhoB;
+    
     auto durationB2 = std::chrono::duration_cast<std::chrono::microseconds>(fimB2-inicioB2).count();
 
     std::cout<<"duracao de carga de trabalho relacionado a tamanho do elemento em bytes e de: "<<durationB2<<std::endl;
@@ -273,13 +279,17 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoO = Carga2.Tamanhoembytes(vetorO, numero);
+    size_t* tamanhoO = Carga2.Tamanhoembytes(vetorO);
 
     auto inicioO2 = std::chrono::steady_clock::now();
-    Carga2.Tamanhoembytes(vetorO, 1);
+    Carga2.Tamanhoembytes(vetorO);
     auto finO2 = std::chrono::steady_clock::now();
 
-    std::cout<<"tamanho do vetor em bytes é de "<<tamanhoO<<std::endl;
+    for(int i=0; i<size2;i++){
+        std::cout<<"tamanho do elemento na posicao "<<i<<" em bytes é de "<<tamanhoO[i]<<std::endl;
+    }
+
+    delete[] tamanhoO;
 
     auto durationO2 = std::chrono::duration_cast<std::chrono::microseconds>(finO2-inicioO2).count();
 
@@ -337,15 +347,19 @@ int main()
     std::cout<<std::endl;
 
     // tamanho de algum item do vetor
-    size_t tamanhoI = Carga3.Tamanhoembytes(vetorI, numero);
+    size_t* tamanhoI = Carga3.Tamanhoembytes(vetorI);
 
     auto inicioI2 = std::chrono::steady_clock::now();
-    Carga3.Tamanhoembytes(vetorI, 1);
+    Carga3.Tamanhoembytes(vetorI);
     auto fimI2 = std::chrono::steady_clock::now();
 
-    std::cout<<"tamanho do vetor em bytes é de "<<tamanhoI<<std::endl;
+    for(int i=0;i<size3;i++){
+        std::cout<<"tamanho do elemento na posicao "<<i<<" em bytes é de "<<tamanhoI[i]<<std::endl;
+    }
 
     auto durationI2 = std::chrono::duration_cast<std::chrono::microseconds>(fimI2-inicioI2).count();
+
+    delete[] tamanhoI;
 
     std::cout<<"duracao de carga de trabalho relacionado a tamanho do elemento em bytes e de: "<<durationI2<<std::endl;
 
