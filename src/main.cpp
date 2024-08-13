@@ -9,7 +9,7 @@
 #include <vector>
 #include <cstring>
 
-
+// tester
 
 void ObterObjeto(Objeto vet[], int size)
 {
