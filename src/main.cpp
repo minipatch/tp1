@@ -9,7 +9,7 @@
 #include <vector>
 #include <cstring>
 
-// tester
+// void  null abism
 
 void ObterObjeto(Objeto vet[], int size)
 {
